@@ -1,0 +1,195 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+
+.navbar {
+    display: flex;
+    width: 100%;
+    position: fixed ;
+    top: 0;
+    font-size: larger;
+    border-bottom: solid ;
+    border-color: #d9d9d9;
+    background-color: rgb(100, 64, 19, 0.5); 
+    z-index: 999;
+    backdrop-filter: blur(2px);
+    padding: 0.5%;
+}
+
+.navbar a :hover{
+    color: brown;
+    filter: drop-shadow(0 0 10px );
+}
+
+.navbar a {
+    color: #ffff;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.3s;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.navbar .logo img {
+    width: 50px  ;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.container1 {
+    display: flex;
+    margin-right: 20%;
+    height: 100%;
+}
+
+/* 
+.acessos {
+    height: 100%;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+
+/* .navbar .login {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: solid;
+    border-radius: 5px;
+    padding: 5%, 10%;
+} */
+
+.navbar .botoes button {
+    font-size: medium;
+    font-weight: 400;
+    transition: 0.3s;
+    margin: 0 20px;
+}
+
+.botoes {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10%;
+}
+
+.botoes button{
+    background-color: transparent;
+    color: white;
+    border: solid #ffff;
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 2px;
+}
+
+.login span{
+    padding: 0 15px;
+}
+
+.cadastro span{
+    padding: 0 15px;
+}
+
+.container-banner img{
+    width: 100%;
+    height: 100%;
+}
+
+.banner-escrita {
+    flex-direction: column;
+    /* coloca h1 e h2 em coluna (um embaixo do outro) */
+    align-items: flex-start;
+    /* alinha à esquerda (ou canto escolhido) */
+    justify-content: flex-start;
+    display: flex;
+    position: absolute;
+    /* align-items: center; */
+    top: 250px;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 3%;
+    /*Colaca em cima*/
+    z-index: 1;
+}
+
+.Informações{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.Informações .violao{
+     display: flex;
+     color: #ffff;
+     align-items: center;
+}
+
+.Informações .violao img{
+    border-radius: 10px;
+}
+
+.Informações .violao img{
+    border-radius: 10px;
+    margin-left: 13%;
+    margin-top: 10%;
+}
+
+.Informações .texto-violao{
+    width: 50%;
+    margin-left: 5%;
+}
+
+.Informações .guitarra{
+    display: flex;
+    color: #ffff;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Informações .guitarra img{
+    border-radius: 10px;
+    margin-right: 3%;
+    margin-top: 3%;
+}
+
+.Informações .texto-guitarra{
+    width: 50%;
+}
+
+.Informações .baixo img{
+    border-radius: 10px;
+    margin-left: 13%;
+    margin-top: 10%;
+}
+
+.Informações .baixo{
+    display: flex;
+    color: #ffff;
+    width: 100%;
+    
+}
+
+.Informações .texto-baixo {
+    width: 50%;
+    margin-left: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
