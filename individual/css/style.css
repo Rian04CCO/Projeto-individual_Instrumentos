@@ -3,6 +3,8 @@ body, html{
     padding: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    font-family: sans-serif;
+    color: #ffff;
 }
 
 
@@ -96,6 +98,7 @@ body, html{
     border-radius: 10px;
     padding: 5px;
     border-width: 2px;
+    cursor: pointer;
 }
 
 .login span{
@@ -110,6 +113,7 @@ body, html{
     width: 100%;
     height: 100%;
 }
+
 
 .banner-escrita {
     flex-direction: column;
@@ -130,7 +134,8 @@ body, html{
 
 .Informações{
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 5%; 
+    
 }
 
 .Informações .violao{
@@ -191,5 +196,18 @@ body, html{
     margin-top: auto;
     margin-bottom: auto;
     
+}
+
+.texto-intro {
+    height: 500px;
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 5%;
+    padding-right: 5%;
+    border: solid;
+    border-width: 1px;
+    border-bottom: #d9d9d9;
+    border-top: #d9d9d9;
+    border-left: #d9d9d9;
 }
 
