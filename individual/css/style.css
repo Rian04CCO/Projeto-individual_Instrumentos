@@ -135,8 +135,10 @@ body, html{
 .Informações{
     margin-top: 5%;
     margin-bottom: 5%; 
-    
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif
 }
+
 
 .Informações .violao{
      display: flex;
@@ -198,9 +200,20 @@ body, html{
     
 }
 
+.banner-escrita {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 200;
+  font-size: larger;
+}
+
+.introducao{
+    display: flex;
+}
+
+
 .texto-intro {
     height: 500px;
-    width: 40%;
+    width: 35%;
     margin-top: 10%;
     margin-left: 5%;
     padding-right: 5%;
@@ -209,5 +222,13 @@ body, html{
     border-bottom: #d9d9d9;
     border-top: #d9d9d9;
     border-left: #d9d9d9;
-}
+} 
 
+
+.intro{
+    width: 100%;
+    height: 30%;
+    margin-left: 40%;
+    font-family: "Kapakana", cursive;
+    font-size: 80px;
+}
