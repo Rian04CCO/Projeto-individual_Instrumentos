@@ -21,6 +21,7 @@ body, html{
     z-index: 999;
     backdrop-filter: blur(2px);
     padding: 0.5%;
+    transition: top 0.3s ease;
 }
 
 .navbar a :hover{
@@ -117,18 +118,14 @@ body, html{
 
 .banner-escrita {
     flex-direction: column;
-    /* coloca h1 e h2 em coluna (um embaixo do outro) */
     align-items: flex-start;
-    /* alinha à esquerda (ou canto escolhido) */
     justify-content: flex-start;
     display: flex;
     position: absolute;
-    /* align-items: center; */
     top: 250px;
     width: 100vw;
     height: 100vh;
     margin-left: 3%;
-    /*Colaca em cima*/
     z-index: 1;
 }
 
@@ -151,6 +148,7 @@ body, html{
 }
 
 .Informações .violao img{
+    cursor: pointer;
     border-radius: 10px;
     margin-left: 13%;
     margin-top: 10%;
@@ -169,11 +167,12 @@ body, html{
     align-items: center;
 }
 
-.Informações .guitarra img{
+.guitarra img {
     border-radius: 10px;
     margin-right: 3%;
     margin-top: 3%;
 }
+
 
 .Informações .texto-guitarra{
     width: 50%;
@@ -208,6 +207,7 @@ body, html{
 
 .introducao{
     display: flex;
+    height: 700px;
 }
 
 
@@ -232,3 +232,53 @@ body, html{
     font-family: "Kapakana", cursive;
     font-size: 80px;
 }
+
+.imagem-tocando {
+    margin-left: 5%;
+    margin-top: 15%;
+}
+
+ footer {
+    height: 500px;
+    background-color: #000;
+} 
+
+.barra {
+    height: 13%;
+    border-bottom:solid  #d9d9d9;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-width: 1px;
+}
+
+/* .ainda-n-sei {
+    height: 700px;
+} */
+
+.carousel-container {
+    width: 100%; 
+    margin: auto;
+    overflow: hidden; 
+    ;
+}
+
+.image-rolando {
+    height: 300px;
+    display: flex; 
+    width: 200%; 
+    animation: slide 7s infinite linear; 
+}
+
+.image-rolando img {
+    border-radius: 30px;
+    padding: 0.3%;
+    width: 100%; 
+    height: 200px;
+}
+
+@keyframes slide {
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+

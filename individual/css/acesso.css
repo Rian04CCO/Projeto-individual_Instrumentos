@@ -1,0 +1,11 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    background-image: url('../src/estudio.webp');
+    background-size: cover; /* Redimensiona a imagem para cobrir toda a área */
+    background-position: center; /* Centraliza a imagem na tela */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-attachment: fixed;
+}
+
