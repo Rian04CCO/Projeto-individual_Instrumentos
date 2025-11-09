@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../individual/css/style.css">
-    <title>Document</title>
+    <link rel="icon" href="../individual/src/icon_monocomatico.png">
+    <title>InstruMix - index</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&display=swap');
     </style>
@@ -140,10 +141,10 @@
             </span>
         </div>
         <div class="imagem-tocando">
-            <img style="overflow: hidden;" src="../individual/src/é isso ai.jpeg" alt="">
+            <img src="../individual/src/é isso ai.jpeg" alt="">
         </div>
     </div>
-    
+
     <div class="carousel-container">
         <div class="image-rolando">
             <img src="../individual/src/violao_rolagem.jpg" alt="">
@@ -152,45 +153,90 @@
             <img src="../individual/src/violao_rolagem.jpg" alt="">
             <img src="../individual/src/guitarra_rolagem.jpg" alt="">
             <img src="../individual/src/baixo_rolagem.jpg" alt="">
+            <img src="../individual/src/violao_rolagem.jpg" alt="">
+            <img src="../individual/src/guitarra_rolagem.jpg" alt="">
+            <img src="../individual/src/baixo_rolagem.jpg" alt="">
+            <img src="../individual/src/violao_rolagem.jpg" alt="">
+            <img src="../individual/src/guitarra_rolagem.jpg" alt="">
+            <img src="../individual/src/baixo_rolagem.jpg" alt="">
         </div>
     </div>
-
     <footer>
-        <div class="barra"></div>
+        <div class="conteudo-footer">
+            <div class="topo">
+                <div class="logo">
+                    <h2><span>Instru</span>Mix</h2>
+                </div>
+            </div>
+            <div class="footer">
+
+                <div class="coluna">
+                    <p>
+                        Esse é um pouco do meu conhecimento basico sobre esses instrumentos e um pouco do que eu gosto de fazer
+                    </p>
+                </div>
+
+                <div class="coluna">
+                    <h3>Contato</h3>
+                    <p><a href="#">(11) 0000-1111</a></p>
+                    <p><a href="#">(11) 4002-8922</a></p>
+                </div>
+
+                <div class="coluna">
+                    <h3>Links Uteis</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#Informacoes">Informações</a></p>
+                    <p><a href="#introducao">Introdução</a></p>
+                </div>
+            </div>
+            <div class="final">
+                <div class="coluna redes">
+                    <h3>Redes Sociais</h3>
+                    <div class="icones">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                        <img src="../individual/src/github-142-svgrepo-com.svg" alt="GitHub">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-copy">
+            <p> © Copyright 2025 InstruMix. Todos os direitos reservados.</p>
+        </div>
     </footer>
+
 </body>
 
 </html>
 
 <script>
-    // var Scroll_1 = 0
-    // var navBar = document.getElementById("navBarTimida")
+     var Scroll_1 = 0
+     var navBar = document.getElementById("navBarTimida")
 
-    // window.addEventListener("scroll", function() {
-    //     var Scroll_2 = window.pageYOffset || document.documentElement.scrollTop
+     window.addEventListener("scroll", function() {
+         var Scroll_2 = window.pageYOffset || document.documentElement.scrollTop
 
-    //     if (Scroll_2 > Scroll_1) {
-    //         // Rolando para baixo → esconder navbar
-    //         navBar.style.top = "-80px" // ajuste conforme a altura da sua navbar
-    //     } else {
-    //         // Rolando para cima → mostrar navbar
-    //         navBar.style.top = "0"
-    //     }
+         if (Scroll_2 > Scroll_1) {
+            //  Rolando para baixo => esconder navbar
+             navBar.style.top = "-80px"  // ajuste conforme a altura da sua navbar
+         } else {
+             // Rolando para cima => mostrar navbar
+             navBar.style.top = "0"
+         }
 
-    //     if (Scroll_2 <= 0) {
-    //         Scroll_1 = 0
-    //     } else {
-    //         Scroll_1 = Scroll_2
-    //     }
-    // }, false)
+         if (Scroll_2 <= 0) {
+             Scroll_1 = 0
+         } else {
+             Scroll_1 = Scroll_2
+         }
+     }, false)
 
     function login() {
         window.location.href = 'login.html'
     }
 
-    function cadastro(){
+    function cadastro() {
         window.location.href = 'cadastro.html'
     }
 
-  
+
 </script>

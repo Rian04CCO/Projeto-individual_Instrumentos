@@ -1,4 +1,4 @@
-body, html{
+* {
     margin: 0;
     padding: 0;
     height: 100px;
@@ -8,4 +8,3 @@ body, html{
     background-repeat: no-repeat; /* Evita a repetição da imagem */
     background-attachment: fixed;
 }
-
