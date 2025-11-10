@@ -271,7 +271,7 @@ body, html{
 
 @keyframes slide {
     100% {
-        transform: translateX(-50%); 
+        transform: translateX(-30%); 
     }
 }
 
@@ -350,3 +350,4 @@ footer{
     text-align: center;
     font-size: 14px;
 }
+
