@@ -12,7 +12,7 @@
     </style>
 </head>
 
-<body style="background-color: #262626;">
+<body onscroll="scrolar()" style="background-color: #262626;">
 
     <nav class="navbar" id="navBarTimida">
         <div class="container1">
@@ -31,7 +31,7 @@
                         <a href="#introducao">| Introdução |</a>
                     </li>
                     <li>
-                        <a href="#">| Quiz |</a>
+                        <a href="login.html">| Quiz |</a>
                     </li>
                 </ul>
             </div>
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-    <div class="carousel-container">
+    <!-- <div class="carousel-container">
         <div class="image-rolando">
             <img src="../individual/src/violao_rolagem.jpg" alt="">
             <img src="../individual/src/guitarra_rolagem.jpg" alt="">
@@ -166,7 +166,7 @@
             <img src="../individual/src/guitarra_rolagem.jpg" alt="">
             <img src="../individual/src/baixo_rolagem.jpg" alt="">
         </div>
-    </div>
+    </div> -->
     <footer>
         <div class="conteudo-footer">
             <div class="topo">
@@ -178,7 +178,8 @@
 
                 <div class="coluna">
                     <p>
-                        Esse é um pouco do meu conhecimento basico sobre esses instrumentos e um pouco do que eu gosto de fazer
+                        Esse é um pouco do meu conhecimento basico sobre esses instrumentos e um pouco do que eu gosto
+                        de fazer
                     </p>
                 </div>
 
@@ -215,26 +216,28 @@
 </html>
 
 <script>
-     var Scroll_1 = 0
-     var navBar = document.getElementById("navBarTimida")
+    var Scroll_1 = 0
+    var navBar = document.getElementById("navBarTimida")
 
-     window.addEventListener("scroll", function() {
-         var Scroll_2 = window.pageYOffset || document.documentElement.scrollTop
+    function scrolar() {
+        var Scroll_2 = window.pageYOffset || document.documentElement.scrollTop
 
-         if (Scroll_2 > Scroll_1) {
+        if (Scroll_2 > Scroll_1) {
             //  Rolando para baixo => esconder navbar
-             navBar.style.top = "-80px"  // ajuste conforme a altura da sua navbar
-         } else {
-             // Rolando para cima => mostrar navbar
-             navBar.style.top = "0"
-         }
+            navBar.style.top = "-80px"  // ajuste conforme a altura da sua navbar
+        } else {
+            // Rolando para cima => mostrar navbar
+            navBar.style.top = "0"
+        }
 
-         if (Scroll_2 <= 0) {
-             Scroll_1 = 0
-         } else {
-             Scroll_1 = Scroll_2
-         }
-     }, false)
+        if (Scroll_2 <= 0) {
+            Scroll_1 = 0
+        } else {
+            Scroll_1 = Scroll_2
+        }
+    }
+
+    // window.addEventListener("scroll",, false)+
 
     function login() {
         window.location.href = 'login.html'
