@@ -46,9 +46,9 @@
     font-size: 1.1em;
   }
 
-  .violao { background-color: #48dd3a; } /* marrom claro */
+  .violao { background-color: #B87C4C; } /* marrom claro */
   .guitarra { background-color: #cbe24a; } /* azul */
-  .baixo { background-color: #d85b5b; } /* roxo */
+  .baixo { background-color: #B7B89F; } /* roxo */
 
   /* Gráficos */
   .caixa {
@@ -84,9 +84,9 @@
 
     <!-- KPIs -->
     <div class="kpis">
-      <div class="kpi violao">🎼 Acertou <br><strong></strong></div>
-      <div class="kpi guitarra">🎶 Pulou<br><strong></strong></div>
-      <div class="kpi baixo">🎵 Errou<br><strong></strong></div>
+      <div class="kpi violao">🎼 Violão <br><strong></strong></div>
+      <div class="kpi guitarra">🎶 Guitarra<br><strong></strong></div>
+      <div class="kpi baixo">🎵 Baixo<br><strong></strong></div>
     </div>
 
     <!-- Gráfico de Barras -->
@@ -108,11 +108,11 @@
   new Chart(barra, {
     type: 'bar',
     data: {
-      labels: ['Acertou', 'Pulou', 'Errou'],
+      labels: ['Violão', 'Guitarra', 'Baixo'],
       datasets: [{
-        label: 'Pontuação',
+        label: 'Preferencia de usuarios',
         data: [80, 60, 40],
-        backgroundColor: ['#48dd3a', ' #cbe24a', '#d85b5b']
+        backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
       }]
     },
    
