@@ -1,83 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../individual/src/icon_monocomatico.png">
-<title>Dashboard Musical</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-  body {
-    background-color: #1e1e1e;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/icon_monocomatico.png">
+  <title>Dashboard Musical</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-  .dashboard {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 20px;
-    width: 90%;
-    max-width: 1000px;
-  }
+    .dashboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
 
-  /* KPIs no topo */
-  .kpis {
-    grid-column: 1 / 3;
-    display: flex;
-    justify-content: space-around;
-    background-color: #2c2c2c;
-    border-radius: 15px;
-    padding: 20px;
-  }
+    /* KPIs no topo */
+    .kpis {
+      grid-column: 1 / 3;
+      display: flex;
+      justify-content: space-around;
+      background-color: #2c2c2c;
+      border-radius: 15px;
+      padding: 20px;
+    }
 
-  .kpi {
-    text-align: center;
-    width: 30%;
-    border-radius: 10px;
-    padding: 15px;
-    color: white;
-    font-size: 1.1em;
-  }
+    .kpi {
+      text-align: center;
+      width: 30%;
+      border-radius: 10px;
+      padding: 15px;
+      color: white;
+      font-size: 1.1em;
+    }
 
-  .violao { background-color: #B87C4C; } /* marrom claro */
-  .guitarra { background-color: #cbe24a; } /* azul */
-  .baixo { background-color: #B7B89F; } /* roxo */
+    .violao {
+      background-color: #B87C4C;
+    }
 
-  /* Gráficos */
-  .caixa {
-    background-color: #d3d3d3;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
+    /* marrom claro */
+    .guitarra {
+      background-color: #cbe24a;
+    }
 
-  #graficoBarra {
-    width: 100%;
-    height: 250px;
-  }
+    /* azul */
+    .baixo {
+      background-color: #B7B89F;
+    }
 
-  .visao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #d3d3d3;
-    border-radius: 20px;
-  }
+    /* roxo */
 
-  #graficoPizza {
-    width: 200px;
-    height: 200px;
-  }
+    /* Gráficos */
+    .caixa {
+      background-color: #d3d3d3;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
 
-</style>
+    #graficoBarra {
+      width: 100%;
+      height: 250px;
+    }
+
+    .visao {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #d3d3d3;
+      border-radius: 20px;
+    }
+
+    #graficoPizza {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
 </head>
+
 <body>
 
   <div class="dashboard">
@@ -102,44 +115,196 @@
 
   </div>
 
-<script>
-  // Gráfico de Barras
-  var barra = document.getElementById('graficoBarra');
-  new Chart(barra, {
-    type: 'bar',
-    data: {
-      labels: ['Violão', 'Guitarra', 'Baixo'],
-      datasets: [{
-        label: 'Preferencia de usuarios',
-        data: [80, 60, 40],
-        backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
-      }]
-    },
-   
-  });
+  <script>
+    // Gráfico de Barras
+    // var barra = document.getElementById('graficoBarra');
+    // new Chart(barra, {
+    //   type: 'bar',
+    //   data: {
+    //     labels: ['Violão', 'Guitarra', 'Baixo'],
+    //     datasets: [{
+    //       label: 'Preferencia de usuarios',
+    //       data: [80, 60, 40],
+    //       backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
+    //     }]
+    //   },
 
-  // Gráfico de Pizza
-  var pizza = document.getElementById('graficoPizza');
-  new Chart(pizza, {
-    type: 'pie',
-    data: {
-      labels: ['Acertou', 'Pulou', 'Errou'],
-      datasets: [{
-        data: [50, 30, 20],
-        backgroundColor: ['#48dd3a', ' #cbe24a', '#d85b5b']
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#000' }
-        }
-      }
+    // });
+
+    // // Gráfico de Pizza
+    // var pizza = document.getElementById('graficoPizza');
+    // new Chart(pizza, {
+    //   type: 'pie',
+    //   data: {
+    //     labels: ['Violão', 'Guitarra', 'Baixo'],
+    //     datasets: [{
+    //       label: 'Preferencia de usuarios',
+    //       data: [80, 60, 40],
+    //       backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
+    //     }]
+    //   },
+
+    // });
+
+
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+
+    const instrumento = sessionStorage.INSTRUMENTO;
+
+    let proximaAtualizacao;
+
+    window.onload = obterInstrumentos;
+
+    function obterInstrumentos() {
+      console.log("Chamando /medidas/instrumentos ...");
+
+      fetch("/medidas/instrumentos", { cache: 'no-store' })
+        .then(function (response) {
+          console.log("Resposta recebida:", response);
+
+          if (response.ok) {
+            return response.json();
+          } else {
+            console.error("Nenhum dado encontrado ou erro na API");
+          }
+        })
+        .then(function (dados) {
+          console.log("Dados convertidos:", dados);
+
+          if (dados) {
+            plotarGraficoInstrumentos(dados);
+          }
+        })
+        .catch(function (erro) {
+          console.log("Erro ao buscar instrumentos:", erro);
+        });
     }
-  });
-</script>
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoInstrumentos(lista) {
+      console.log("Iniciando plotagem...");
+      console.log("Lista recebida:", lista);
+
+      let labels = [];
+      let valores = [];
+
+      lista.forEach(item => {
+        console.log("Item:", item);
+        labels.push(item.instrumento);
+        valores.push(item.quantidade);
+      });
+
+      console.log("Labels final:", labels);
+      console.log("Valores final:", valores);
+
+      const config = {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Quantidade de usuários por instrumento',
+            data: valores,
+            backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F'],
+            borderWidth: 1
+          }]
+        }
+      };
+
+      new Chart(
+        document.getElementById("graficoBarra"),
+        config
+      );
+
+      // console.log('----------------------------------------------')
+      // console.log('O gráfico será plotado com os respectivos valores:')
+      // console.log('Labels:')
+      // console.log(labels)
+      // console.log('Dados:')
+      // console.log(dados.datasets)
+      // console.log('----------------------------------------------')
+
+      console.log("Gráfico criado!");
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas,
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    // function atualizarGrafico(instrumento, dados, myChart) {
+
+
+
+    //     fetch(`/medidas/tempo-real/${instrumento}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (novoRegistro) {
+
+    //                 obterdados(instrumento);
+    //                 // alertar(novoRegistro, instrumento);
+    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+    //                 console.log(`Dados atuais do gráfico:`);
+    //                 console.log(dados);
+
+    //                 let avisoCaptura = document.getElementById(`avisoCaptura${instrumento}`)
+    //                 avisoCaptura.innerHTML = ""
+
+
+    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+    //                     console.log("---------------------------------------------------------------")
+    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+    //                     console.log("Horário do novo dado capturado:")
+    //                     console.log(novoRegistro[0].momento_grafico)
+    //                     console.log("Horário do último dado capturado:")
+    //                     console.log(dados.labels[dados.labels.length - 1])
+    //                     console.log("---------------------------------------------------------------")
+    //                 } else {
+    //                     // tirando e colocando valores no gráfico
+    //                     dados.labels.shift(); // apagar o primeiro
+    //                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+    //                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+    //                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+    //                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+    //                     myChart.update();
+    //                 }
+
+    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(instrumento, dados, myChart), 2000);
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(instrumento, dados, myChart), 2000);
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
+
+
+
+  </script>
 
 </body>
+
 </html>

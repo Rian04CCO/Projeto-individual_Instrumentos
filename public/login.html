@@ -10,7 +10,7 @@
     </style>
     <title>Login</title>
 
-    <script src="./js/sessao.js"></script>
+    <!-- <script src="./js/sessao.js"></script> -->
 
 </head>
 <body style="background-image: url('./img/estudio.webp');">
@@ -30,7 +30,7 @@
                     <span>Senha:</span>
                     <input type="password" placeholder="SenhaForte" id="ipt_senha">
                 </label>
-                <button onclick="validar()" class="bt-login">Login</button>
+                <button onclick="entrar()" class="bt-login">Login</button>
             </div>
             <div class="outros-links">
                 <p><a href="./cadastro.html">Não possui uma conta? <span>Cadastre-se</span></a></p>
@@ -45,8 +45,8 @@
      function entrar() {
         // aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
 
         // if (emailVar == "" || senhaVar == "") {
         //     cardErro.style.display = "block"
@@ -85,7 +85,7 @@
                     // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dash.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -105,6 +105,8 @@
         })
 
         return false;
+
+        
     }
 
     // function sumirMensagem() {
