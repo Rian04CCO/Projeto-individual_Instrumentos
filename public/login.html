@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <!-- <script src="./js/sessao.js"></script> -->
 
 </head>
+
 <body style="background-image: url('./img/estudio.webp');">
 
     <div class="conteiner">
@@ -20,10 +22,14 @@
             <div class="login">
                 <span>Login</span>
             </div>
-            
+
             <div class="inputs">
                 <label>
-                   <span>Email:</span>
+                   <span>NickName:</span>
+                    <input type="text" placeholder="jorgeTocador" id="ipt_nome">
+                </label>
+                <label>
+                    <span>Email:</span>
                     <input type="text" placeholder="seuemail@gmail.com" id="ipt_email">
                 </label>
                 <label>
@@ -37,12 +43,17 @@
             </div>
         </div>
     </div>
-    
+
 </body>
+
 </html>
 
 <script>
-     function entrar() {
+    function entrar() {
+
+        var nome = document.getElementById("ipt_nome").value;
+        sessionStorage.setItem("nomeUsuario", nome);
+        window.location.href = "dash.html";
         // aguardar();
 
         var emailVar = ipt_email.value;
@@ -106,7 +117,7 @@
 
         return false;
 
-        
+
     }
 
     // function sumirMensagem() {

@@ -94,6 +94,7 @@
 <body>
 
   <div class="dashboard">
+    <div id="msg"></div>
 
     <!-- KPIs -->
     <div class="kpis">
@@ -101,6 +102,8 @@
       <div class="kpi guitarra">🎶 Guitarra<br><strong></strong></div>
       <div class="kpi baixo">🎵 Baixo<br><strong></strong></div>
     </div>
+
+
 
     <!-- Gráfico de Barras -->
     <div class="caixa">
@@ -116,36 +119,12 @@
   </div>
 
   <script>
-    // Gráfico de Barras
-    // var barra = document.getElementById('graficoBarra');
-    // new Chart(barra, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: ['Violão', 'Guitarra', 'Baixo'],
-    //     datasets: [{
-    //       label: 'Preferencia de usuarios',
-    //       data: [80, 60, 40],
-    //       backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
-    //     }]
-    //   },
 
-    // });
+    nome = sessionStorage.getItem("nomeUsuario");
+    document.getElementById("msg").textContent = nome;
 
-    // // Gráfico de Pizza
-    // var pizza = document.getElementById('graficoPizza');
-    // new Chart(pizza, {
-    //   type: 'pie',
-    //   data: {
-    //     labels: ['Violão', 'Guitarra', 'Baixo'],
-    //     datasets: [{
-    //       label: 'Preferencia de usuarios',
-    //       data: [80, 60, 40],
-    //       backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F']
-    //     }]
-    //   },
 
-    // });
-
+    msg.innerHTML = `Olá ${nome}`
 
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // O gráfico é construído com três funções:
@@ -210,7 +189,7 @@
       console.log("Labels final:", labels);
       console.log("Valores final:", valores);
 
-      const config = {
+      const barra = {
         type: 'bar',
         data: {
           labels: labels,
@@ -225,7 +204,26 @@
 
       new Chart(
         document.getElementById("graficoBarra"),
-        config
+        barra
+      );
+
+
+      const pizza = {
+        type: 'pie',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Quantidade de usuários por instrumento',
+            data: valores,
+            backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F'],
+            borderWidth: 1
+          }]
+        }
+      };
+
+      new Chart(
+        document.getElementById("graficoPizza"),
+        pizza
       );
 
       // console.log('----------------------------------------------')
