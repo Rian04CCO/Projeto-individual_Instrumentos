@@ -88,6 +88,20 @@
       width: 200px;
       height: 200px;
     }
+
+    button{
+      border: 0;
+      outline: none;
+      margin-top: 1%;
+      font-size: 20px;
+      background-color: transparent;
+      border: solid #fffdfd;
+      border-radius: 10px;
+      padding: 0 20px;
+      border-width: 2px;
+      cursor: pointer;
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -117,6 +131,8 @@
     </div>
 
   </div>
+
+  <button onclick="quiz()">Teste seu conhecimento</button>
 
   <script>
 
@@ -235,6 +251,10 @@
       // console.log('----------------------------------------------')
 
       console.log("Gráfico criado!");
+    }
+
+    function quiz() {
+      window.location = `Quiz.html`
     }
 
 
