@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+    <title>Instrumix - Quiz</title>
     <link rel="stylesheet" href="./css/quiz.css">
 </head>
 
@@ -13,6 +13,19 @@
     <div id="pontuacaoEJogo" class="container">
         <!-- <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button> -->
         <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <span id="spanPontuacaoFinal">***</span>
+                    </span>
+                    <span id="msgFinal" class="width-fit-content">***</span>
+                </div>
+            </div>
 
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
@@ -46,14 +59,16 @@
                 </span>
             </div>
         </div>
-        
+
         <div id="botoes" class="flex-colunar padding-8">
-            <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+            <div class="btn-submeter">
+                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+            </div>
             <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
             <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
             <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
         </div>
-        
+
     </div>
 </body>
 
@@ -67,25 +82,52 @@
             alternativaB: "B - 4 cordas",
             alternativaC: "C - 7 cordas",
             alternativaD: "D - 6 cordas",
-            alternativaCorreta: "alternativaA"
+            alternativaCorreta: "alternativaD"
         },
 
         {
             pergunta: "O que é uma tarracha?",
             alternativaA: "A - Nome especial para quem toca",
             alternativaB: "B - Aparte usada para afinar",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
+            alternativaC: "C - De onde sai o som",
+            alternativaD: "D - Nenhuma das alternativas",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "O que é uma triade?",
+            alternativaA: "A - Nome dado a separação de acordes",
+            alternativaB: "B - Conjunto de 3 notas",
+            alternativaC: "C - Conjunto de 3 acordes",
+            alternativaD: "Terceira parte de uma música",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "O que são notas diminuto?",
+            alternativaA: "A - Notas que durão 1 min",
+            alternativaB: "B - Empilhamneto de 2 terças",
+            alternativaC: "C - Notas elevadas em semitons",
+            alternativaD: "D - Notas abaixadas em semitons",
             alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: "O que é uma casa no violão?",
+            alternativaA: "A - Onde os dedos moram",
+            alternativaB: "B - Onde guarda a palheta",
+            alternativaC: "C - Os espaços no braço do violão",
+            alternativaD: "D - De onde sai o som",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "O que é um acorde?",
+            alternativaA: "A - A mesma que tarracha",
+            alternativaB: "B - Nem existe isso",
+            alternativaC: "C - Nome dado ao conjunto de notas",
+            alternativaD: "D - Movimento que é feito com a mão",
+            alternativaCorreta: "alternativaC"
         },
 
 
