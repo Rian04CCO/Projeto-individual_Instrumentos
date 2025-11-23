@@ -80,6 +80,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       background-color: #d3d3d3;
       border-radius: 20px;
     }
@@ -89,7 +90,7 @@
       height: 200px;
     }
 
-    button{
+    button {
       border: 0;
       outline: none;
       margin-top: 1%;
@@ -108,7 +109,7 @@
 <body>
 
   <div class="dashboard">
-    <div id="msg"></div>
+    <div id="msg">Olá </div>
 
     <!-- KPIs -->
     <div class="kpis">
@@ -136,13 +137,12 @@
 
   <script>
 
-    nome = sessionStorage.getItem("nomeUsuario");
-    document.getElementById("msg").textContent = nome;
+    // nome = sessionStorage.getItem("nomeUsuario");
+    // document.getElementById("msg").textContent = nome;
 
 
-    msg.innerHTML = `Olá ${nome}`
 
-    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    msg.innerHTML = sessionStorage.NOME_USUARIO;
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
@@ -159,7 +159,10 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterInstrumentos;
+    window.onload = () => {
+      obterInstrumentos();
+      obterMusica();
+    };
 
     function obterInstrumentos() {
       console.log("Chamando /medidas/instrumentos ...");
@@ -212,7 +215,7 @@
           datasets: [{
             label: 'Quantidade de usuários por instrumento',
             data: valores,
-            backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F'],
+            backgroundColor: ['#B87C4C', '#cbe24a', '#B7B89F'],
             borderWidth: 1
           }]
         }
@@ -222,14 +225,55 @@
         document.getElementById("graficoBarra"),
         barra
       );
+    }
 
+    function obterMusica() {
+      console.log("Chamando /medidas/musica ...");
+
+      fetch("/medidas/musica", { cache: 'no-store' })
+        .then(function (response) {
+          console.log("Resposta recebida:", response);
+
+          if (response.ok) {
+            return response.json();
+          } else {
+            console.error("Nenhum dado encontrado ou erro na API");
+          }
+        })
+        .then(function (dados) {
+          console.log("Dados convertidos:", dados);
+
+          if (dados) {
+            plotarGraficoMusica(dados);
+          }
+        })
+        .catch(function (erro) {
+          console.log("Erro ao buscar musica:", erro);
+        });
+    }
+
+    function plotarGraficoMusica(lista) {
+      console.log("Iniciando plotagem...");
+      console.log("Lista recebida:", lista);
+
+      let labels = [];
+      let valores = [];
+
+      lista.forEach(item => {
+        console.log("Item:", item);
+        labels.push(item.musica);
+        valores.push(item.quantidade);
+      });
+
+      console.log("Labels final:", labels);
+      console.log("Valores final:", valores);
 
       const pizza = {
         type: 'pie',
         data: {
           labels: labels,
           datasets: [{
-            label: 'Quantidade de usuários por instrumento',
+            label: 'Quantidade de musicas tocadas pelo usuario',
             data: valores,
             backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F'],
             borderWidth: 1

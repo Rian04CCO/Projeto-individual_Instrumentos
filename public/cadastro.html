@@ -62,10 +62,10 @@
                     </label>
                     <label>
                         <span>Quantas música toca:</span>
-                        <select name="" id="musicas">
-                            <option value="0">Nenhuma</option>
-                            <option value="1">3 a 5</option>
-                            <option value="2">Muitas</option>
+                        <select name="" id="musica">
+                            <option value="nenhuma">Nenhuma</option>
+                            <option value="3 a 5">3 a 5</option>
+                            <option value="muitas">Muitas</option>
                         </select>
                     </label>
                     <button onclick="cadastrar()" class="bt-cadastro">Cadastrar-se</button>
@@ -104,6 +104,7 @@
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
         var instrumentoVar = instrumento.value
+        var musicaVar = musica.value
 
         // Verificando se há algum campo em branco
         // if (
@@ -147,7 +148,8 @@
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                instrumentoServer: instrumentoVar
+                instrumentoServer: instrumentoVar,
+                musicaServer: musicaVar
             }),
         })
             .then(function (resposta) {

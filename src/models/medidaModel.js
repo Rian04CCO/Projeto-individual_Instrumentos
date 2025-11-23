@@ -14,6 +14,22 @@ function buscarInstrumentos() {
     return database.executar(instrucaoSql);
 }
 
+function buscarMusica() {
+    console.log("Model: buscarMusica()");
+
+    var instrucaoSql = `
+        SELECT 
+            qtdMusica AS musica,
+            COUNT(*) AS quantidade
+        FROM Usuario
+        GROUP BY qtdMusica;
+    `;
+
+    console.log("Executando SQL:\n", instrucaoSql);
+
+    return database.executar(instrucaoSql);
+}
+
 // function buscarMedidasEmTempoReal(idAquario) {
 
 //     var instrucaoSql = `SELECT 
@@ -29,6 +45,7 @@ function buscarInstrumentos() {
 // }
 
 module.exports = {
+    buscarMusica,
 
     buscarInstrumentos
 }
