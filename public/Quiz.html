@@ -7,68 +7,70 @@
     <title>Instrumix - Quiz</title>
     <link rel="stylesheet" href="./css/quiz.css">
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kapakana&display=swap');
+</style>
 
 
 <body>
-    <div id="pontuacaoEJogo" class="container">
-        <!-- <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button> -->
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+    <div id="pontuacaoEJogo" class="container-geral">
+        <div id="jogo" class="caixa-jogo coluna borda-secundaria">
 
-            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+            <div id="pontuacao" class="coluna caixa-pontuacao">
+                <div id="pontuacaoDuranteJogo" class="coluna espacamento-8">
+                    <span class="largura-minima">Quantidade de acertos: <span id="spanCertas"></span></span>
+                    <span class="largura-minima">Quantidade de erros: <span id="spanErradas"></span></span>
                 </div>
-                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+
+                <div id="pontuacaoFinalJogo" class="coluna espacamento-8">
+                    <span id="pontuacaoFinal" class="largura-minima">Pontuação Final:
                         <span id="spanPontuacaoFinal">***</span>
                     </span>
-                    <span id="msgFinal" class="width-fit-content">***</span>
+                    <span id="msgFinal" class="largura-minima">***</span>
                 </div>
             </div>
 
-            <div id="infoQuestao" class="padding-8">
+            <div id="infoQuestao" class="espacamento-8 caixa-info-questao">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
+            <div id="perguntaDaQuestaoAtual" class="caixa-pergunta">
+                <span id="spanQuestaoExibida" class="texto-negrito"></span>
             </div>
 
-            <div id="infoAlternativas" class="padding-8">
+            <div id="infoAlternativas" class="espacamento-8 caixa-escolha">
                 <span><em>Escolha uma opção dentre as abaixo:</em></span>
             </div>
 
-            <div id="opcoes" class="flex-colunar padding-8">
+            <div id="opcoes" class="coluna caixa-opcoes">
                 <span>
                     <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    <label for="primeiraOpcao" class="opcao-um" id="labelOpcaoUm"></label>
                 </span>
                 <span>
                     <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    <label for="segundaOpcao" class="opcao-dois" id="labelOpcaoDois"></label>
                 </span>
                 <span>
                     <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    <label for="terceiraOpcao" class="opcao-tres" id="labelOpcaoTres"></label>
                 </span>
                 <span>
                     <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    <label for="quartaOpcao" class="opcao-quatro" id="labelOpcaoQuatro"></label>
                 </span>
             </div>
         </div>
-
-        <div id="botoes" class="flex-colunar padding-8">
-            <div class="btn-submeter">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-            </div>
-            <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-            <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+    </div>
+    <div id="botoes" class="coluna caixa-botoes">
+        <div class="botao-enviar">
+            <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
         </div>
-
+        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+        <button onclick="finalizarJogo()">Finalizar</button>
+        <button onclick="sair()">Logout</button>
     </div>
 </body>
 
@@ -148,7 +150,6 @@
 
     btnSubmeter.disabled = false
     btnProx.disabled = true
-    // btnConcluir.disabled = true
     btnTentarNovamente.disabled = true
 
 
@@ -304,5 +305,9 @@
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
 
+    }
+
+    function sair() {
+        window.location = 'index.html'
     }
 </script>

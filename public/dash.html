@@ -10,7 +10,7 @@
   <style>
     body {
       background-color: #1e1e1e;
-      color: #fff;
+      color: #000000;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -107,15 +107,15 @@
 </head>
 
 <body>
-
+  
   <div class="dashboard">
     <div id="msg">Olá </div>
 
     <!-- KPIs -->
     <div class="kpis">
-      <div class="kpi violao">🎼 Violão <br><strong></strong></div>
-      <div class="kpi guitarra">🎶 Guitarra<br><strong></strong></div>
-      <div class="kpi baixo">🎵 Baixo<br><strong></strong></div>
+      <span style="color: #B7B89F;">Instrumento mais tocado:</span>
+      <div class="kpi violao" id="kpiInstrumento" style="color: #000000;" > </div>
+      <div class="kpi baixo"  style="color: #000000;" id="kpiQuantidade"><br><strong></strong></div>
     </div>
 
 
@@ -162,6 +162,7 @@
     window.onload = () => {
       obterInstrumentos();
       obterMusica();
+      mostrarKpis()
     };
 
     function obterInstrumentos() {
@@ -196,22 +197,22 @@
       console.log("Iniciando plotagem...");
       console.log("Lista recebida:", lista);
 
-      let labels = [];
+      let instrumentos = [];
       let valores = [];
 
       lista.forEach(item => {
         console.log("Item:", item);
-        labels.push(item.instrumento);
+        instrumentos.push(item.instrumento);
         valores.push(item.quantidade);
       });
 
-      console.log("Labels final:", labels);
+      console.log("Labels final:", instrumentos);
       console.log("Valores final:", valores);
 
       const barra = {
         type: 'bar',
         data: {
-          labels: labels,
+          labels: instrumentos,
           datasets: [{
             label: 'Quantidade de usuários por instrumento',
             data: valores,
@@ -256,25 +257,25 @@
       console.log("Iniciando plotagem...");
       console.log("Lista recebida:", lista);
 
-      let labels = [];
-      let valores = [];
+      let qtdusicas = [];
+      let valoresMusica = [];
 
       lista.forEach(item => {
         console.log("Item:", item);
-        labels.push(item.musica);
-        valores.push(item.quantidade);
+        qtdusicas.push(item.musica);
+        valoresMusica.push(item.quantidade);
       });
 
-      console.log("Labels final:", labels);
-      console.log("Valores final:", valores);
+      console.log("Labels final:", qtdusicas);
+      console.log("Valores final:", valoresMusica);
 
       const pizza = {
         type: 'pie',
         data: {
-          labels: labels,
+          labels: qtdusicas,
           datasets: [{
             label: 'Quantidade de musicas tocadas pelo usuario',
-            data: valores,
+            data: valoresMusica,
             backgroundColor: ['#B87C4C', ' #cbe24a', '#B7B89F'],
             borderWidth: 1
           }]
@@ -297,71 +298,54 @@
       console.log("Gráfico criado!");
     }
 
+    function mostrarKpis() {
+      console.log("Chamando /medidas/instrumentos ...");
+
+      fetch("/medidas/instrumentos", { cache: 'no-store' })
+        .then(function (response) {
+          console.log("Resposta recebida:", response);
+
+
+          if (response.ok) {
+            return response.json();
+          } else {
+            console.error("Nenhum dado encontrado ou erro na API");
+          }
+        })
+        .then(function (dados) {
+          console.log("Dados convertidos:", dados);
+
+          if (dados) {
+
+            var maisTocado = dados[0];
+
+            for (var i = 1; i < dados.length; i++) {
+              if (dados[i].quantidade > maisTocado.quantidade) {
+                maisTocado = dados[i];
+              }
+            }
+
+
+            console.log("Instrumento mais tocado:", maisTocado.instrumento);
+            console.log("Quantidade:", maisTocado.quantidade);
+
+            kpiInstrumento.innerHTML = maisTocado.instrumento;
+            kpiQuantidade.innerHTML = maisTocado.quantidade;
+
+            document.getElementById("kpiInstrumento").innerHTML = maisTocado.instrumento;
+            document.getElementById("kpiQuantidade").innerHTML = maisTocado.quantidade;
+          }
+        })
+        .catch(function (erro) {
+          console.log("Erro ao buscar instrumentos:", erro);
+        });
+    }
+
     function quiz() {
       window.location = `Quiz.html`
     }
 
 
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas,
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function atualizarGrafico(instrumento, dados, myChart) {
-
-
-
-    //     fetch(`/medidas/tempo-real/${instrumento}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-
-    //                 obterdados(instrumento);
-    //                 // alertar(novoRegistro, instrumento);
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico:`);
-    //                 console.log(dados);
-
-    //                 let avisoCaptura = document.getElementById(`avisoCaptura${instrumento}`)
-    //                 avisoCaptura.innerHTML = ""
-
-
-    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-    //                     console.log("---------------------------------------------------------------")
-    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-    //                     console.log("Horário do novo dado capturado:")
-    //                     console.log(novoRegistro[0].momento_grafico)
-    //                     console.log("Horário do último dado capturado:")
-    //                     console.log(dados.labels[dados.labels.length - 1])
-    //                     console.log("---------------------------------------------------------------")
-    //                 } else {
-    //                     // tirando e colocando valores no gráfico
-    //                     dados.labels.shift(); // apagar o primeiro
-    //                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-    //                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-    //                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-    //                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-    //                     myChart.update();
-    //                 }
-
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(instrumento, dados, myChart), 2000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(instrumento, dados, myChart), 2000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
 
 
 

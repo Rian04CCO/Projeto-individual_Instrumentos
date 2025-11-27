@@ -12,6 +12,11 @@ router.get("/musica", function (req, res) {
     console.log("Rota /medidas/musica chamada");
     medidaController.buscarMusica(req, res);
 });
+
+router.get("/kpis", function (req, res) {
+    console.log("Rota /medidas/kpis chamada");
+    medidaController.mostrarKpis(req, res);
+});
 // router.get("/tempo-real/:idAquario", function (req, res) {
 //     medidaController.buscarMedidasEmTempoReal(req, res);
 // })
