@@ -25,7 +25,7 @@
 
             <div class="inputs">
                 <label>
-                   <span>NickName:</span>
+                    <span>NickName:</span>
                     <input type="text" placeholder="jorgeTocador" id="ipt_nome">
                 </label>
                 <label>
@@ -38,11 +38,17 @@
                 </label>
                 <button onclick="entrar()" class="bt-login">Login</button>
             </div>
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <div class="outros-links">
                 <p><a href="./cadastro.html">Não possui uma conta? <span>Cadastre-se</span></a></p>
             </div>
         </div>
     </div>
+    
 
 </body>
 
@@ -51,18 +57,18 @@
 <script>
     function entrar() {
 
-        
+
         // aguardar();
 
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
-        // if (emailVar == "" || senhaVar == "") {
-        //     cardErro.style.display = "block"
-        //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        //     finalizarAguardar();
-        //     return false;
-        // }
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = `<span style="color: red;">Preencha todos os campos</span>`;
+            // finalizarAguardar();
+            return false;
+        }
         // else {
         //     setInterval(sumirMensagem, 5000)
         // }
