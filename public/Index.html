@@ -201,13 +201,13 @@
     var navBar = document.getElementById("navBarTimida")
 
     function scrolar() {
-        var Scroll_2 = window.pageYOffset || document.documentElement.scrollTop
+        var Scroll_2 = window.pageYOffset
 
         if (Scroll_2 > Scroll_1) {
-            //  Rolando para baixo => esconder navbar
+            //  Rolando para baixo / esconder navbar
             navBar.style.top = "-80px"  // ajuste conforme a altura da sua navbar
         } else {
-            // Rolando para cima => mostrar navbar
+            // Rolando para cima / mostrar navbar
             navBar.style.top = "0"
         }
 
@@ -218,7 +218,6 @@
         }
     }
 
-    // window.addEventListener("scroll",, false)+
 
     function login() {
         window.location.href = 'login.html'

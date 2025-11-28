@@ -57,21 +57,15 @@
 <script>
     function entrar() {
 
-
-        // aguardar();
-
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = `<span style="color: red;">Preencha todos os campos</span>`;
-            // finalizarAguardar();
             return false;
         }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
+        
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -97,11 +91,11 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                   
 
                     setTimeout(function () {
                         window.location = "./dash.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000);
 
                 });
 
@@ -111,7 +105,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
+                    
                 });
             }
 
@@ -124,7 +118,5 @@
 
     }
 
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
+  
 </script>
