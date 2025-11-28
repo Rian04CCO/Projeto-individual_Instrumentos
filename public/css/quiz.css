@@ -45,3 +45,12 @@ body {
     flex-direction: column;
 }
 
+.btn-amigo button{
+    
+    color: #000000;
+   margin-top: 5%;
+   border: #fff solid;
+   border-radius: 5px;
+   border-width: 2px;
+   padding: 2px 2px;
+}
